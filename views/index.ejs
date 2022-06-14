@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>List Cars</title>
+</head>
+<body>
+    <section id="nav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/cars/add">Tambah Data</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                    <class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unis Badri</a>
+                        <class="dropdown-menu" aria-labelledby="navbarDropdown">
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid mt-3">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/cars">Home</a></li>
+            </ol>
+          </nav>
+        </div>
+    </section>
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <% data.forEach(result => { %>
+                    <div class="col-md-3 col-lg-3 mt-5">
+                        <div class="card" style="width: 18rem;">
+                            <img src="http:localhost:8080/static<%= result.foto %>" width="150" height="150" class="card-img-top">
+                            <div class="card-body">
+                              <h5 class="card-title"><%= result.nama %></h5>
+                              <p class="card-text"><b><%= result.sewa %> / hari</b></p>
+                              <p class="card-text"><%= result.ukuran %></p>
+                              <p class="card-text"><%= result.createdAt %></p>
+                              <a onclick="alert('Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin ingin menghapus?')" href="/cars/<%= result.id %>" class="btn btn-outline-danger" style="width: 125px;">Delete</a>
+                              <a href="/cars/update/<%= result.id %>" class="btn btn-success" style="width: 125px;">Edit</a>
+                            </div>
+                          </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,11 @@
+// Table database cars
+
+table cars {
+  id integer [pk]
+  nama varchar
+  sewa integer
+  ukuran varchar
+  foto varchar
+  created_at datetime
+  update_at datetime
+}
